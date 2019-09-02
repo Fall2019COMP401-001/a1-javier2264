@@ -59,6 +59,6 @@ public class A1Novice {
 
 		// Print results
 		
-		System.out.println(firstName.charAt(0) + lastName + ": " + totalString);
+		System.out.println(firstName.charAt(0) + ". " + lastName + ": " + totalString);
 	}
 }
