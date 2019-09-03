@@ -22,25 +22,28 @@ public class A1Jedi {
 		int[] totalCustomers = new int[count];		
 		
 		for (int i=0; i<customers; i++) {
+			int[] prevTotalCustomerNum = new int[count];
+
 			firstNames[i] = scan.next();			
 			lastNames[i] = scan.next();					
 			int items = scan.nextInt();				
 			
-			for (int j=0; j<items; j++) {					
+			for (int j=0; j<items; j++) {		
+
 				int quantities = scan.nextInt();				
 				String item = scan.next();				
-				String[] previousItems = new String[items];
 				
 				for (int k=0; k<count; k++) {					
 					
-					if (item.equals(itemNames[k])) {					
-						totalQuantities[k] += quantities;					
+					if (item.equals(itemNames[k])) {	
+						totalQuantities[k] += quantities;	
 						totalCustomers[k]++;
-					
-					
+						if (prevTotalCustomerNum[k] > 0)
+							totalCustomers[k]--;
+					prevTotalCustomerNum[k]++;
+
 					}
 				}
-				
 			}
 		
 	}
