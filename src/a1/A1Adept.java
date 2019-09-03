@@ -37,15 +37,15 @@ public class A1Adept {
 		double averageSpent = findAverageSpent(totalCosts);
 		scan.close();
 		
-		System.out.println("Biggest: " + firstNames[biggest] + " " + lastNames[biggest] + "(" + String.format("%.2f",totalCosts[biggest]) + ")");
-		System.out.println("Smallest: " + firstNames[smallest] + " " + lastNames[smallest] + "(" + String.format("%.2f",totalCosts[smallest]) + ")");
+		System.out.println("Biggest: " + firstNames[biggest] + " " + lastNames[biggest] + " (" + String.format("%.2f",totalCosts[biggest]) + ")");
+		System.out.println("Smallest: " + firstNames[smallest] + " " + lastNames[smallest] + " (" + String.format("%.2f",totalCosts[smallest]) + ")");
 		System.out.println("Average: " + String.format("%.2f", averageSpent));
 		}
 		
 public static double getCost(String vals, String[] itemNames, double[] num) {
 	double cost = 0;
 	for (int i=0; i<itemNames.length; i++) {
-		if (itemNames[i] == vals ) {
+		if (itemNames[i].equals(vals) ) {
 			cost += num[i];
 		}
 	}
@@ -55,9 +55,9 @@ public static double getCost(String vals, String[] itemNames, double[] num) {
 public static int findBiggest(double[] vals) {
 	int biggest = 0;
 	for (int i=0; i<vals.length; i++) {
-		if (vals[i] > vals[biggest]) {
+		if (vals[i] >= vals[vals.length - 1] && vals[i] > vals[biggest]) {
 			biggest = i;
-		}
+		} 
 	}
 	return biggest;
 }
@@ -65,7 +65,7 @@ public static int findBiggest(double[] vals) {
 public static int findSmallest(double[] vals) {
 	int smallest = 0;
 	for (int i=0; i<vals.length; i++) {
-		if (vals[i] < vals[smallest]) {
+		if (vals[i] <= vals[vals.length - 1] && vals[i] < vals[smallest]) {
 			smallest = i;
 		}
 	}
@@ -73,7 +73,7 @@ public static int findSmallest(double[] vals) {
 }
 
 public static double findAverageSpent(double[] vals) {
-	int average = 0;
+	double average = 0;
 	for (int i=0; i<vals.length; i++) {
 		average += vals[i];
 	}
