@@ -47,8 +47,13 @@ public class A1Jedi {
 		scan.close();
 		
 		for (int l=0; l<count; l++) {
-			System.out.println(totalCustomers[l] + " customers bought " + totalQuantities[l] + " " + itemNames[l]);
-	}	
+			if (totalCustomers[l] == 0) {
+				System.out.println("No customers bought " + itemNames[l]);
+			} else {
+				System.out.println(totalCustomers[l] + " customers bought " + totalQuantities[l] + " " + itemNames[l]);
+			}
+		}	
+			
 		
 		
 }
